@@ -1,0 +1,129 @@
+﻿<%@ master language="C#" autoeventwireup="true" inherits="UserMaster, App_Web_4n0dulas" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Document Manager</title>
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <!-- Wrap Starts Here -->
+        <div class="wrap">
+            <!-- header starts -->
+            <div class="header">
+                <div class="headerinner">
+                    <!-- Logo Starts Here -->
+                    <div class="logo">
+                        <img style="margin-top: 30px;" src="../images/logo.png" alt="DocuManager logo" /></div>
+                    <!-- Logo ends Here -->
+                    <!-- banner Starts Here -->
+                    <div class="headerright">
+                        <table width="500" border="0" align="left" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td class="headertxt" align="left" valign="middle">
+                                    <ul class="topnav">
+                                        <li style="padding-left: 20px;">Last Login:
+                                            <asp:Label ID="lblLastLogin" runat="server" Text="28 Jan, 2013 11:26"></asp:Label></li>
+                                        <li>
+                                            <asp:LinkButton ID="lnkMyAccount" runat="server" onclick="lnkMyAccount_Click" CssClass="header-text">My Account</asp:LinkButton></li>
+                                        <li style="border-right: none;">
+                                            <asp:LinkButton ID="lnlLogout" runat="server" onclick="lnlLogout_Click" CssClass="header-text">Logout</asp:LinkButton></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" valign="top">
+                                    <img src="../images/banner_image.png" width="521" height="93" alt="" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- banner ends Here -->
+                </div>
+            </div>
+            <!-- header ends -->
+            <div class="main">
+                <div class="content">
+                    <div class="content-left">
+                        <div class="nav-header">
+                            CATEGORY</div>
+                        <div class="navlist">
+                            <table width="200" border="0" align="left" cellpadding="0" cellspacing="0" >
+                                <tr>
+                                    <td class="nav-text" width="242" height="30" align="left" valign="middle">
+                                        <a href="../user/uploaddocument.aspx">SCAN / ADD DOCUMENT</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="middle">
+                                        <img src="../images/dotted-line_img.png" width="204" height="4" alt="" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="nav-text" align="left" valign="middle" height="30">
+                                        <a href="../user/dataentry.aspx">DATA ENTRY</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="middle">
+                                        <img src="../images/dotted-line_img.png" alt="" width="204" height="4" alt="" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="nav-text" align="left" valign="middle" height="30">
+                                        <a href="../user/approveDocuments.aspx">APPROVE DOCUMENTS</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="middle">
+                                        <img src="../images/dotted-line_img.png" alt="" width="204" height="4" alt="" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="nav-text" align="left" valign="middle" height="30">
+                                        <a href="#">REPORT</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="middle">
+                                        <img src="../images/dotted-line_img.png" alt="" width="204" height="4" alt="" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" valign="middle">
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-header">
+                            <div class="content-header-title">
+                                <asp:Label ID="lblMenuCaption" runat="server" Text="SCAN / ADD DOCUMENT"></asp:Label>
+                            </div>
+                        </div>
+                        <div class="grid-view">
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- footer starts -->
+            <div class="footer">
+                <div style="clear: both;" class="footertxt">
+                    Copyright © 2012-2013 DocManager. All Rights Reserved.</div>
+            </div>
+            <!-- footer ends -->
+        </div>
+        <!-- Wrap End Here -->
+    </div>
+    </form>
+</body>
+</html>

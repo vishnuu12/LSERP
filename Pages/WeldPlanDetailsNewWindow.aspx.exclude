@@ -1,0 +1,296 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="WeldPlanDetailsNewWindow.aspx.cs" Inherits="Pages_WeldPlanDetailsNewWindow" %>
+
+<!DOCTYPE html>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <%--<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">--%>
+    <%--<link rel="stylesheet" type="text/css" href="../Assets/css/bootstrap.css" />--%>
+    <link rel="stylesheet" type="text/css" href="../Assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../Assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/ep-style.css" />
+    <link rel="stylesheet" type="text/css" href="../Assets/css/media-queries.css" />
+    <link rel="stylesheet" type="text/css" href="../Assets/css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="../Assets/css/sweetalert.css" />
+    <script type="text/javascript" src="../Assets/scripts/main.js"></script>
+    <script type="text/javascript" src="../Assets/scripts/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../Assets/scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../Assets/scripts/CommonFunctions.js"></script>
+    <script type="text/javascript" src="../Assets/scripts/chosen.jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Assets/css/chosen.min.css" />
+    <link rel="stylesheet" type="text/css" href="../Assets/css/datatables2.css" />
+    <script type="text/javascript" src="../Assets/scripts/datatables2.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+
+    <%--<link rel="stylesheet" type="text/css" href="../Assets/css/style.css" />--%>
+    <%--<link rel="stylesheet" type="text/css" href="../Assets/css/responsive-style.css" />--%>
+    <%--  <link rel="apple-touch-icon" sizes="57x57" href="../Assets/Images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../Assets/Images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../Assets/Images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../Assets/Images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../Assets/Images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../Assets/Images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../Assets/Images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../Assets/Images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../Assets/Images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../Assets/Images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Assets/Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../Assets/Images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Assets/Images/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">--%>
+
+    <script type="text/javascript">
+        function InfoMessage(title, message) {
+            swal(title, message, 'info');
+        }
+        function SuccessMessage(title, message) {
+            swal(title, message, 'success');
+        }
+        function ErrorMessage(title, message) {
+            swal(title, message, 'error');
+        }
+
+
+        $(document).ready(function () {
+            debugger;
+            try {
+                $('select').chosen();
+                $('.chosen-container').attr('style', 'width:100% ! important;');
+                if ($('table').is('.pagingfalse') || $('table').is('.tablestatesave')) {
+                    $('table').DataTable({
+                        "retrieve": true,
+                        "bStateSave": true,
+                        "fnStateSave": function (oSettings, oData) {
+                            localStorage.setItem('DataTables_' + window.location.pathname, JSON.stringify(oData));
+                        },
+                        "fnStateLoad": function (oSettings) {
+                            var data = localStorage.getItem('DataTables_' + window.location.pathname);
+                            return JSON.parse(data);
+                        },
+                        "stateSaveParams": function (settings, data) {
+                            data.length = 50;
+                        },
+                    });
+                }
+                else {
+                    $('table').DataTable({
+                        "retrieve": true,
+                        "pageLength": 50,
+                        ////'lengthMenu': [[50, -1], [50, 'All']],
+                        //// dom: 'Bfrtip'
+                        //dom: 'Bfrtip',
+                        //lengthMenu: [
+                        //    [10, 25, 50, -1],
+                        //    ['10 rows', '25 rows', '50 rows', 'Show all']
+                        //],
+                        //buttons: [
+                        //    'pageLength'
+                        //]
+                    });
+                }
+                $('.datepicker').datepicker({
+                    format: 'dd/mm/yyyy'
+                });
+                $('.breadcrumb-item').click(function () {
+                    window.location.href = "AdminHome.aspx";
+                });
+            } catch (er) { }
+            $('.form-control').each(function () {
+                if ($(this).prop("tagName") == "INPUT") {
+                    if ($(this).val() == "")
+                        $(this).removeClass('has-val');
+                    else
+                        $(this).addClass('has-val');
+                } else if ($(this).prop("tagName") == "SELECT") {
+                    if (($(this).val() == "0") || ($(this).val() == "") || ($(this).val() == null))
+                        $(this).removeClass('has-val');
+                    else
+                        $(this).addClass('has-val');
+                }
+            });
+            $('.form-control').focusout(function () {
+                if ($(this).prop("tagName") == "INPUT") {
+                    if ($(this).val() == "")
+                        $(this).removeClass('has-val');
+                    else
+                        $(this).addClass('has-val');
+                } else if ($(this).prop("tagName") == "SELECT") {
+                    if (($(this).val() == "0") || ($(this).val() == "") || ($(this).val() == null))
+                        $(this).removeClass('has-val');
+                    else
+                        $(this).addClass('has-val');
+                }
+            });
+        });
+        
+        function profileinfo() {
+            try {
+                $('.btn-group').addClass("open");
+            } catch (er) { }
+        }
+        function Notification() {
+            try {
+                $('.btn-link').closest('.dropdown').addClass("open");
+            } catch (er) { }
+        }
+        function ServerSideValidation(controlID) {
+            var message = controlID.split('/');
+            $('#' + message[0]).notify(message[1], { arrowShow: true, position: 'r,r', autoHide: true });
+        }
+
+        function Mandatorycheck(div, progress) {
+            var msg = true;
+            try {
+                if (progress != 'noprogress') showLoader();
+                if (div != '') div = '#' + div + ' ';
+                if ($(div + '.Invalid').length > 0) {
+                    $(div + '.Invalid').focus();
+                    hideLoader();
+                    return false;
+                }
+                $(div + '.mandatoryfield').each(function () {
+                    var notify = false;
+                    if ($(this).find('[type="file"]').length < 1 && $(this).val() == '') msg = false, notify = true, $(this).focus();
+                    else if ($(this).prop('type') == 'select-one' && $(this).val() == 0) msg = false, notify = true, $(this).focus();
+                    else if ($(this).find('[type="file"]').length > 0 && $(this).find('[type="hidden"]').val() == '') msg = false, notify = true, $(this).focus();
+                    if (notify == true) {
+                        if ($(this).parent().prop("tagName") == 'TD') $(this).closest('td').notify('Fields Required.', { arrowShow: true, position: 'r,r', autoHide: true });
+                        else $(this).notify('Fields Required.', { arrowShow: true, position: 'r,r', autoHide: true });
+                    }
+                });
+                if (msg == false) {
+                    hideLoader();
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            } catch (er) { }
+        }
+        function checkAll(ele) {
+            debugger;
+            if ($(ele).is(":checked")) {
+                $(ele).closest('table').find('[type="checkbox"]').prop('checked', true);
+            }
+            else {
+                $(ele).closest('table').find('[type="checkbox"]').prop('checked', false);
+            }
+        }
+
+        function ServerValidation(ControlID) {
+            var controls = [];
+            controls.push(ControlID.split('/'));
+            $.each(controls, function (FNIndex, value) {
+                $('#' + controls[FNIndex]).notify('Fields Required.', { arrowShow: true, position: 'r,r', autoHide: true });
+            });
+        }
+
+        function DocValidation(ele) {
+            var fileExtension = ['jpeg', 'jpg', 'png', 'eml', 'doc', 'docx', 'xlsx', 'xls', 'pdf', 'ppt', 'pptx', 'contact', 'csv', 'dif', 'sdf', 'svf', 'tar', 'tsv', 'vdb', 'odt', 'opml', 'pages', 'rtf', 'sig', 'tex', 'wpd', 'wps', 'bmp', 'gif', 'pcx', '7z', 'alz', 'deb', 'gz', 'pkg', 'pup', 'rar', 'rpm', 'sea', 'sfx', 'sit', 'sitx', 'tar', 'gz', 'tgz', 'war', 'zip', 'zipx'];
+            if ($.inArray($(ele).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
+                ErrorMessage('Error', 'Please upload a File with extension:' + fileExtension.toString() + '');
+                $(ele).val('');
+                return false;
+            }
+            else
+                return true;
+        }
+
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_endRequest(function () {
+            try {
+                $('select').chosen();
+                $('.chosen-container').attr('style', 'width:100% ! important;');
+                $('.datepicker').datepicker({
+                    format: 'dd/mm/yyyy'
+                });
+
+                $('.table').each(function () {
+                    var ControlID = $(this).attr('id');
+                    if ($('#' + ControlID + ' ' + 'tr').length > 2) {
+                        debugger;
+                        if (ControlID == 'ContentPlaceHolder1_gvStaffAssignmentDetails' || $(this).is('.tablestatesave')) {
+                            $('#' + ControlID).DataTable({
+                                //"paging": false
+                                "retrieve": true,
+                                "bStateSave": true,
+                                "fnStateSave": function (oSettings, oData) {
+                                    localStorage.setItem('DataTables_' + window.location.pathname, JSON.stringify(oData));
+                                },
+                                "fnStateLoad": function (oSettings) {
+                                    var data = localStorage.getItem('DataTables_' + window.location.pathname);
+                                    return JSON.parse(data);
+                                },
+                                "stateSaveParams": function (settings, data) {
+                                    data.length = 50;
+                                },
+                            });
+                        }
+
+                        else if (ControlID == 'ContentPlaceHolder1_gvItemCostingDetails' || $(this).is('.pagingfalse')) {
+                            $('#ContentPlaceHolder1_gvItemCostingDetails').find('th').addClass('nosort')
+
+                            $('#' + ControlID).DataTable({
+                                "paging": false,
+                                "aaSorting": [],
+                                "bSortable": false,
+                                "aTargets": ['nosort']
+                            });
+                        }
+
+                        else if ($(this).is('.orderingfalse')) {
+                            $('#' + ControlID).DataTable({
+                                "ordering": false
+                            });
+                        }
+
+                        else {
+                            $('#' + ControlID).DataTable({
+                                // dom: 'Blfrtip',
+                                "retrieve": true, "pageLength": 50,
+                                //  'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],
+                            });
+                        }
+                    }
+                });
+                hideLoader();
+            } catch (er) { hideLoader(); }
+        });
+        prm.add_beginRequest(function () {
+            showLoader();
+        });
+
+    </script>
+
+    <style type="text/css">
+        .main-container {
+            width: 99% !important;
+            margin-left: 2% !important;
+        }
+    </style>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <cc1:ToolkitScriptManager runat="Server" EnablePartialRendering="true" ID="ScriptManager1"
+            EnablePageMethods="true" />
+        <div>
+        
+
+
+        </div>
+    </form>
+</body>
+</html>

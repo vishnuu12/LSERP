@@ -1,0 +1,334 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using eplus.core;
+using System.Data;
+using System.Configuration;
+using System.IO;
+using System.Text;
+
+public partial class Pages_MaterialClassificationNomMaster : System.Web.UI.Page
+{
+    #region "Declaration"
+
+    cSession _objSession = new cSession();
+    cCommonMaster _objCommon = new cCommonMaster();
+    cCommon _objc = new cCommon();
+
+    #endregion
+
+    #region "PageInit Events"
+
+    protected void Page_Init(object sender, EventArgs e)
+    {
+        _objSession = Master.csSession;
+    }
+
+    #endregion
+
+    #region "PageLoad Events"
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        string target = Request["__EVENTTARGET"];
+        string arg = Request["__EVENTARGUMENT"];
+
+        if (IsPostBack == false)
+        {
+            bindMaterialClassificationMaster();
+            divInput.Visible = true;
+            divOutput.Visible = true;
+        }
+        else
+        {
+            if (target == "deletegvrow")
+            {
+                int CMID = Convert.ToInt32(arg);
+                DataSet ds = _objCommon.deleteMaterialClassificationMaster(CMID);
+                if (ds.Tables[0].Rows[0]["Message"].ToString() == "Deleted")
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Delete", "SuccessMessage('Success','Material Classification Nom Deleted successfully');", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Delete", "InfoMessage('Information','You Cannot Delete The Record');", true);
+                }
+
+                bindMaterialClassificationMaster();
+
+            }
+        }
+    }
+
+    #endregion
+
+    #region "Button Events"
+
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if ((txtClassificationNom.Text.Trim() != "") && (ddlMaterialGroup.SelectedValue != "0"))
+            {
+                _objCommon.CMID = Convert.ToInt32(hdnCMID.Value);
+                _objCommon.ClassificationNomName = txtClassificationNom.Text.Trim();
+                _objCommon.MGID = Convert.ToInt32(ddlMaterialGroup.SelectedValue.Split('/')[0].ToString());
+
+                DataSet ds = _objCommon.SaveMaterialClassificationMaster();
+
+                if (ds.Tables[0].Rows[0]["Message"].ToString() == "AE")
+                {
+                    if (this.gvMaterialClassificationNom.Rows.Count > 0)
+                    {
+                        gvMaterialClassificationNom.UseAccessibleHeader = true;
+                        gvMaterialClassificationNom.HeaderRow.TableSection = TableRowSection.TableHeader;
+                    }
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Message", "ErrorMessage('Error','Material Classification Nom Already Exists');hideLoader();", true);
+
+                    txtClassificationNom.Focus();
+                }
+                else
+                {
+                    if (Convert.ToInt32(hdnCMID.Value) == 0)
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Message", "hideLoader();SuccessMessage('Success','Material Classification Nom  Saved successfully');", true);
+                    else
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Message", "hideLoader();SuccessMessage('Success','Material Classification Nom  Updated successfully');", true);
+
+                    bindMaterialClassificationMaster();
+                }
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Message", "hideLoader();ErrorMessage('Error','Field is required');showDataTable();", true);
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Message(ex);
+        }
+    }
+
+    protected void btnExcelDownload_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            string MAXEXID = "";
+            DataTable dt = new DataTable();
+            dt = (DataTable)ViewState["DataTable"];
+            dt.Columns.Remove("CMID");
+            dt.Columns.Remove("MGID");
+
+            MAXEXID = _objc.GetMaximumNumberExcel();
+
+            int rowcount = Convert.ToInt32(dt.Rows.Count);
+            int ColumnCount = Convert.ToInt32(dt.Columns.Count);
+
+            string strFile = "";
+
+            string LetterName = MAXEXID + ".xlsx";
+
+            string LetterPath = ConfigurationManager.AppSettings["ExcelSavePath"].ToString();
+
+            string GemBoxKey = ConfigurationManager.AppSettings["GemBoxKey"].ToString();
+
+            strFile = LetterPath + LetterName;
+
+            if (!Directory.Exists(LetterPath))
+                Directory.CreateDirectory(LetterPath);
+
+            if (File.Exists(strFile))
+            {
+                File.Delete(strFile);
+            }
+
+            _objc.exportExcel(dt, rowcount, ColumnCount, strFile, LetterName, "LoneStar", lbltitle.Text, 2, GemBoxKey);
+
+            _objc.SaveExcelFile("MaterialClassificationNomMaster.aspx", LetterName, _objSession.employeeid);
+
+            bindMaterialClassificationMaster();
+
+        }
+        catch (Exception ex)
+        {
+            Log.Message(ex.ToString());
+        }
+    }
+
+    protected void btnPDFDownload_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            string MAXPDFID = "";
+
+            gvMaterialClassificationNom.Columns[3].Visible = false;
+            gvMaterialClassificationNom.Columns[4].Visible = false;
+
+            var sb = new StringBuilder();
+            ////divPrintReceiptDetails.RenderControl(new HtmlTextWriter(new StringWriter(sb)));
+            gvMaterialClassificationNom.RenderControl(new HtmlTextWriter(new StringWriter(sb)));
+            string div = sb.ToString();
+            //string div = divPrintReceiptDetails1.InnerHtml;
+            gvMaterialClassificationNom.Columns[3].Visible = true;
+            gvMaterialClassificationNom.Columns[4].Visible = true;
+
+            MAXPDFID = _objc.GetMaximumNumberPDF();
+
+            string htmlfile = MAXPDFID + ".html";
+            string pdffile = MAXPDFID + ".pdf";
+            string LetterPath = ConfigurationManager.AppSettings["PDFSavePath"].ToString();
+            string strFile = LetterPath + pdffile;
+
+            string URL = LetterPath + htmlfile;
+
+            StreamWriter w;
+            w = File.CreateText(URL);
+            w.WriteLine("<html><head><title>");
+            w.WriteLine("Classification Nom details");
+            w.WriteLine("</title>");
+            w.WriteLine("<link rel='stylesheet' type='text/css' href='http://localhost:52012/lonestar/Assets/css/ep-style.css'/>");
+            w.WriteLine("<link rel='stylesheet' href='http://localhost:52012/lonestar/Assets/css/style.css' type='text/css'/>");
+            w.WriteLine("</head><body>");
+            w.WriteLine("<div style='text-align:center;padding-top:10px;font-size:20px;color:#00BCD4;'>");
+            w.WriteLine("LoneStar");
+            w.WriteLine("</div>");
+            w.WriteLine("<div class='col-sm-12' style='text-align:center;padding-top:10px;font-size:20px;font-weight:bold;'>");
+            w.WriteLine(lbltitle.Text);
+            w.WriteLine("<div>");
+            w.WriteLine("<div class='col-sm-12' style='padding-top:10px;'>");
+            w.WriteLine(div);
+            w.WriteLine("<div>");
+            w.WriteLine("</body></html>");
+            w.Flush();
+            w.Close();
+
+            _objc.GenerateAndSavePDF(LetterPath, strFile, pdffile, URL);
+
+            _objc.SavePDFFile("MaterialClassificationNomMaster.aspx", pdffile, _objSession.employeeid);
+
+            bindMaterialClassificationMaster();
+        }
+        catch (Exception ex)
+        {
+            Log.Message(ex.ToString());
+        }
+    }
+
+    public override void VerifyRenderingInServerForm(Control control)
+    {
+
+    }
+
+    #endregion
+
+    #region"GridView Events"
+
+    protected void gvMaterialClassificationNom_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        try
+        {
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.Cells[0].Attributes.Add("style", "text-align:center;");
+                e.Row.Cells[1].Attributes.Add("style", "text-align:left;");
+                e.Row.Cells[2].Attributes.Add("style", "text-align:left;");
+                e.Row.Cells[3].Attributes.Add("style", "text-align:center;");
+                e.Row.Cells[4].Attributes.Add("style", "text-align:center;");
+            }
+            else if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Cells[0].Attributes.Add("style", "text-align:center;");
+                e.Row.Cells[1].Attributes.Add("style", "text-align:left;");
+                e.Row.Cells[2].Attributes.Add("style", "text-align:left;");
+                e.Row.Cells[3].Attributes.Add("style", "text-align:center;");
+                e.Row.Cells[4].Attributes.Add("style", "text-align:center;");
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Message(ex.ToString());
+        }
+    }
+
+    protected void gvMaterialClassificationNom_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        try
+        {
+            if (e.CommandName.ToString() == "EditMaterialNomName")
+            {
+               
+
+                int index = Convert.ToInt32(e.CommandArgument.ToString());
+
+                Label lblMaterialGroupName = (Label)gvMaterialClassificationNom.Rows[index].FindControl("lblMaterialGroupName");
+
+                string CMID = gvMaterialClassificationNom.DataKeys[index].Values[0].ToString();
+                ddlMaterialGroup.SelectedValue = lblMaterialGroupName.Text.ToString();
+                txtClassificationNom.Text = ((Label)gvMaterialClassificationNom.Rows[index].FindControl("lblMaterialNomName")).Text;
+                hdnCMID.Value = CMID;
+                if (this.gvMaterialClassificationNom.Rows.Count > 0)
+                {
+                    gvMaterialClassificationNom.UseAccessibleHeader = true;
+                    gvMaterialClassificationNom.HeaderRow.TableSection = TableRowSection.TableHeader;
+                }
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "ShowAdd", "showDataTable();", true);
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Message(ex);
+        }
+    }
+
+    #endregion
+
+    #region "Common Methods"
+
+    private void bindMaterialClassificationMaster()
+    {
+        try
+        {
+            DataSet dsMaterialNomDetails = new DataSet();
+
+            dsMaterialNomDetails = _objCommon.GetMaterialClassificationMaster();
+
+            ddlMaterialGroup.Items.Clear();
+
+            _objCommon.GetMaterialGroupName(ddlMaterialGroup);
+            ViewState["DataTable"] = dsMaterialNomDetails.Tables[0];
+
+            if (dsMaterialNomDetails.Tables[0].Rows.Count > 0)
+            {
+                divDownload.Visible = true;
+                gvMaterialClassificationNom.DataSource = dsMaterialNomDetails.Tables[0];
+                gvMaterialClassificationNom.DataBind();
+
+                gvMaterialClassificationNom.UseAccessibleHeader = true;
+                gvMaterialClassificationNom.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "function", "showDataTable();", true);
+            }
+
+            else
+            {
+                divDownload.Visible = false;
+                gvMaterialClassificationNom.DataSource = "";
+                gvMaterialClassificationNom.DataBind();
+            }
+
+            hdnCMID.Value = "0";
+            txtClassificationNom.Text = "";
+            ddlMaterialGroup.SelectedValue = "0";
+        }
+        catch (Exception ex)
+        {
+            Log.Message(ex.ToString());
+        }
+    }
+
+    #endregion
+
+}

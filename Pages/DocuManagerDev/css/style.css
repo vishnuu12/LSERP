@@ -1,0 +1,426 @@
+@charset "utf-8";
+/* CSS Document */
+body{ font-family:Arial, Helvetica, sans-serif; margin: 0 auto; background:#606062;}
+.wrap{ width:100%; height:100%; margin:0 auto; background:#fff;}
+.header{ width:100%; height:auto; margin:0 auto; background:url(../images/banner.png) no-repeat center top  #008ba3;height:272px;}
+.headerinner{ width:975px; height:auto; margin:0 auto;}
+.logo{ float:left; display:inline;}
+.headerright{ float:right; display:inline; width:521px; height:auto;}
+.banner{ float:right;}
+.banner img{float:right;}
+.topnav{list-style:none;list-style-type: none;margin:0;padding:0;}
+.topnav li{float: left;display: list-item;text-align: -webkit-match-parent; padding:0px 10px 5px 10px; font-family:Arial, Helvetica, sans-serif; color:#fff; font-size:12px; font-weight:normal; border-right:solid 1px #fff;height:10px;}
+.main{width:100%; height:auto; margin:0 auto; }
+.headertxt{ background:url(../images/search_bg.png) no-repeat; height:30px; width:521px;}
+.content{width:975px; height:420px; margin:0 auto; background:#fff; margin-top:-150px; font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000;}
+.content-left{width:235px; height:auto; padding:5px; float:left; display:inline; }
+.nav-header{float:left;display:inline; width:210px; background:#606062; padding:14px 10px 5px 14px; height:25px; text-align:left; vertical-align:middle; font-family:Arial, Helvetica, sans-serif; color:#fff; font-size:15px; font-weight:bold}
+.navlist{clear:both; width:210px; height:420px;background:#f5f5f5;padding:14px 10px 5px 14px;}
+.navlist ul{ float:left; padding::0px; width:210px;}
+.navlist ul li{ list-style:none;}
+
+.nav-text{ font-family:Arial, Helvetica, sans-serif; color:#757575; font-size:12px; font-weight:bold;text-decoration:none;}
+.nav-text a{ font-family:Arial, Helvetica, sans-serif; color:#757575; font-size:12px; font-weight:bold;text-decoration:none; }
+.nav-text a:hover{ font-family:Arial, Helvetica, sans-serif; color:#0b8899; font-size:12px; font-weight:bold; text-decoration:none; padding:4px; width:60px;}
+.nav-text-visited{ font-family:Arial, Helvetica, sans-serif; color:#0b8899; font-size:12px; font-weight:bold;text-decoration:none;}
+.nav-text-visited a{ font-family:Arial, Helvetica, sans-serif; color:#0b8899; font-size:12px; font-weight:bold;text-decoration:none; }
+.nav-text-visited a:hover{ font-family:Arial, Helvetica, sans-serif; color:#0b8899; font-size:12px; font-weight:bold; text-decoration:none; }
+
+.nav-text-disable{ font-family:Arial, Helvetica, sans-serif; color:#d9d9d9; font-size:12px; font-weight:bold;text-decoration:none;}
+.nav-text-disable a{ font-family:Arial, Helvetica, sans-serif; color:#d9d9d9; font-size:12px; font-weight:bold;text-decoration:none; }
+.nav-text-disable a:hover{ font-family:Arial, Helvetica, sans-serif; color:#d9d9d9; font-size:12px; font-weight:bold; text-decoration:none; }
+
+.content-right{ width:722px; height:auto;  float:left; display:inline; background:#fff; margin-top:5px; }
+.content-header{background:url(../images/header_bg.png) no-repeat;width:722px; height:43px;}
+.content-header-title{ padding:10px 10px 10px 10px; font-family:arial; font-size:15px; font-weight:bold;}
+.grid-view{ width:720px; height:auto; margin-top:0px;background-color: rgb(245, 245, 245);
+border: dotted 1px #d9d9d9;margin-bottom:6px;}
+.footer{width:100%; height:100%; margin:0 auto; background:url(../images/footer_bg.png) #606062 repeat-x; clear:both; margin-top:75px;}
+.footertxt{ width:975px; height:auto; min-height:40px; margin:0 auto; text-align:center; padding-top:15px; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#d9d9d9; font-weight:normal;}
+.grid-bottom {border-collapse: collapse;border: none;}
+.grid-bottom td {border-bottom: solid 1px #fff; padding:5px;}
+.radioButtons td{ border-bottom:none; padding:0px;}
+.header-text{ font-family:Arial, Helvetica, sans-serif; color:#fff; font-size:12px; font-weight:normal;text-decoration:none; }
+.header-text a:hover{ font-family:Arial, Helvetica, sans-serif; color:#05afba; font-size:12px; font-weight:normal; text-decoration:none;}
+.despanvaluecaption{font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#046475;}
+.despanvalue{font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#464646;}
+/* Login  Start  */
+
+
+/* .forget-pass-txt{ font-family:Arial, Helvetica, sans-serif; color:#00aabb; font-size:12px;text-decoration:underline;} */
+a.forget-pass-txt { font-family:Arial, Helvetica, sans-serif; color:#00aabb; font-size:12px; font-weight:bold; text-decoration:underline;}
+a.forget-pass-txt:hover { font-family:Arial, Helvetica, sans-serif; color:#00aabb; font-size:12px;text-decoration:none;}
+.remeber-txt{font-family:Arial, Helvetica, sans-serif; color:#AAAAAA; font-size:12px;text-decoration:none; font-weight:bold;}
+
+
+
+
+/* Login  End  */
+
+
+/* Modal Background Style Start Here*/
+.loaderModalBackground
+{
+    filter: Alpha(Opacity=40);
+    -moz-opacity: 0.4;
+    opacity: 0.4;
+    width: 100%;
+    height: 100%;
+    background-color: #d9d9d9;
+    position: absolute;
+    z-index: 500;
+    top: 0px;
+    left: 0px;
+}
+/* Modal Background Style Ends Here*/
+
+
+
+/* Sathish  */
+
+/*Calendar Control CSS Start */
+.cal_Theme1 .ajax__calendar_container
+{
+    background-color: #DEF1F4;
+    border: solid 1px #77D5F7;
+    width:230px;
+    height:220px;
+}
+        
+.cal_Theme1 .ajax__calendar_header
+{
+    background-color: #ffffff;
+    margin-bottom: 4px;
+}
+        
+.cal_Theme1 .ajax__calendar_title, .cal_Theme1 .ajax__calendar_next, .cal_Theme1 .ajax__calendar_prev
+{
+    color: #004080;
+    padding-top: 3px;
+}
+        
+.cal_Theme1 .ajax__calendar_body
+{
+    background-color: #ffffff;
+    border: solid 1px #77D5F7;
+     width:230px;
+     height:175px;
+}
+        
+.cal_Theme1 .ajax__calendar_dayname
+{
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 4px;
+    margin-top: 2px;
+    color: #004080;
+}
+        
+.cal_Theme1 .ajax__calendar_day
+{
+    color: #004080;
+    text-align: center;
+}
+        
+.cal_Theme1 .ajax__calendar_hover .ajax__calendar_day, .cal_Theme1 .ajax__calendar_hover .ajax__calendar_month, .cal_Theme1 .ajax__calendar_hover .ajax__calendar_year, .cal_Theme1 .ajax__calendar_active
+{
+    color: #004080;
+    font-weight: bold;
+    background-color: #DEF1F4;
+}
+        
+.cal_Theme1 .ajax__calendar_today
+{
+    font-weight: bold;
+   
+}
+        
+.cal_Theme1 .ajax__calendar_other, .cal_Theme1 .ajax__calendar_hover .ajax__calendar_today, .cal_Theme1 .ajax__calendar_hover .ajax__calendar_title
+{
+    color: #bbbbbb;
+}
+        
+/*Calendar Control CSS End */       
+
+/*Auto Complete Control CSS Start */ 
+.AutoExtender
+{
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: .8em;
+    font-weight: normal;
+    border: solid 1px #006699;
+    line-height: 20px;
+    padding: 10px;
+    background-color: White;
+    margin-left: 0px;
+    z-index:9999; 
+}
+.AutoExtenderList
+{
+    border-bottom: dotted 1px #006699;
+    cursor: pointer;
+    color: Maroon;
+}
+.AutoExtenderHighlight
+{
+    color: White;
+    background-color: #006699;
+    cursor: pointer;
+}
+#divwidth
+{
+    width: 190px !important;
+}
+#divwidth div
+{
+    width: 190px !important;
+}
+
+/*Auto Complete Control CSS End */ 
+
+/*  Controls Css Start */
+
+
+
+/*Default CSS for pan containers*/
+.pancontainer
+{
+    position: relative; /*keep this intact*/
+    overflow: hidden; /*keep this intact*/
+    width: 240px;
+    height: 240px;
+    border: 0px solid black;
+}
+
+.retrievalImageView { width:auto; height:540px; border:1px #d7d7d7 solid; overflow:hidden; position:relative; }
+.retrievalImageView img { cursor:move; }
+.retrievalImageView table td { height:440px !important; }
+.retrievalImageView .imageMagnify { position:absolute; bottom:15px; right:5px; width:auto; height:10px; z-index:100; }
+.retrievalImageView .imageMagnify a.zoomIn { background:url(../images/zoomIn.png) no-repeat; width:20px; height:21px; display:inline-block; margin:0px 2px 0px 0px; }
+.retrievalImageView .imageMagnify a.zoomOut { background:url(../images/zoomOut.png) no-repeat; width:20px; height:21px; display:inline-block; }
+
+.txtBox{border: solid 1px rgb(217, 217, 217);height: 20px;}
+
+.dropdown
+{
+    display:inline-block; background:url(../icons/selectcombo.png) no-repeat; width:150px; height:23px; border:none;  
+}
+
+.reqField
+{
+    font-size:12px; 
+    font-weight:normal; 
+    color: rgb(252, 159, 159);
+}
+
+.approveLabel
+{
+    font-size:12px; 
+    font-weight:normal; 
+    color:Gray;
+}
+
+.lblDECaption
+{
+    font-size:12px; 
+    font-weight:bold; 
+    color:Gray;
+    margin-left:10px;
+}
+
+.lblCaptionNormal
+{
+    font-size:12px; 
+    font-weight:bold; 
+    color:Gray;
+    margin-left:10px;
+}
+
+.lblCaption
+{
+    font-size:12px; 
+    font-weight:normal; 
+    color:rgb(9, 8, 8);
+    margin-left:10px;
+}
+
+.lblCaptionBold
+{
+    font-size:12px; 
+    font-weight:bold; 
+    color:rgb(9, 8, 8);
+    margin-left:10px;
+}
+
+.actionButtons{border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    color:white;
+    cursor:pointer;
+    text-decoration:none;
+    margin:10px 10px 0 0px; 
+    float:left; 
+    padding:0px 14px;
+    line-height:22px;
+    background:url(../icons/button-bg.png);
+    text-align:center;
+    display:block;
+    width:72px;
+    height:24px; 
+}
+
+.flexiButton{border-style: none;
+    border-color: inherit;
+    border-width: medium;
+    color:white;
+             cursor:pointer;
+             text-decoration:none;
+             margin:10px 10px 0 0px; 
+             float:left; 
+             padding:0px 14px;
+    line-height:22px;
+    background:url(../images/red-gradient.gif) repeat-x;
+    text-align:center;
+    display:block;
+    border-radius:5px 5px;-moz-box-shadow:0 1px 4px rgba(0,0,0,0.6);
+    -webkit-box-shadow:0 1px 4px rgba(0,0,0,0.6);
+    box-shadow:0 1px 4px rgba(0,0,0,0.6)
+}
+
+
+.active_btn
+{
+    font-size:12px; 
+    font-weight:normal; 
+    color:Green;
+}
+
+.inactive_btn
+{
+    font-size:12px; 
+    font-weight:normal; 
+    color:red;
+}
+
+.edit_icon { background:url(../icons/edit.png) no-repeat; width:18px; height:19px; display:block; }
+.view_icon { background:url(../icons/view.png) no-repeat; width:22px; height:23px; display:block; }
+.delete_icon { background:url(../icons/delete.png) no-repeat; width:20px; height:20px; display:block;}
+.grid-header-text{ font-family:Arial; font-size:12px; color:#fff; font-weight:bold; text-decoration:none;margin-left:10px; }
+.grid-header-text a{ font-family:Arial; font-size:12px; color:#fff; font-weight:bold; text-decoration:none;margin-left:10px; }
+.grid-header-text a:hover{ font-family:Arial; font-size:12px; color:#fff; font-weight:bold; text-decoration:none;margin-left:10px; }
+.grid-header-text th{ font-family:Arial; font-size:12px; color:#fff; font-weight:bold; text-decoration:none;margin-left:10px; }
+.field-bottom{ border-bottom:solid 1px #fff;}
+.txtAddress{ height:60px; resize:none;border: solid 1px rgb(217, 217, 217);}
+
+/*  Controls Css End */
+
+/* Sathish  */
+
+
+
+
+.file_input_textbox
+{
+	float: left;
+	margin-top: 7px;
+}
+
+.file_input_div
+{
+	position: relative; 
+	width: 250px; 
+	height: 34px; 
+	overflow: hidden;
+}
+
+.file_input_button
+{
+	width: 121px; 
+	position: absolute; 
+	top: 0px;
+	/*background-color: #33BB00;*/
+	background-image:url(../images/browse_img.png);
+	color: #FFFFFF;
+	border-style: none;
+	height:34px;
+	background-color: rgb(245, 245, 245);
+	
+}
+
+.file_input_hidden
+{
+	font-size: 45px; 
+	position: absolute; 
+	right: 0px; 
+	top: 0px; 
+	opacity: 0; 
+	
+	filter: alpha(opacity=0); 
+	-ms-filter: "alpha(opacity=0)"; 
+	-khtml-opacity: 0; 
+	-moz-opacity: 0;
+}
+
+
+/* Grid table Css
+.tableheader{ border:solid 1px #d9d9d9; width:690px;  }
+.tableheader table{display: table;border-collapse: separate;}
+.tableheader table td{ background:#ececec; padding:5px 0px 5px 10px; text-align:left; height:15px; font-family: Arial;font-size: 12px;color:#464646;font-weight: normal;text-decoration: none;  border-right:solid 1px #fff; border-left:solid 1px #fff;border-bottom:solid 1px #d9d9d9;}
+.tableheader table th{ background: rgb(0, 139, 164); height:23px;font-family: Arial;font-size: 12px;color: white;font-weight: bold;text-decoration: none; text-align:left; padding:4px 0px 4px 14px; border-right:solid 1px #fff;}
+.tableheader table th a{ background: rgb(0, 139, 164); height:23px;font-family: Arial;font-size: 12px;
+color: white !important;font-weight: bold;text-decoration: none; text-align:left;
+}
+
+.pagination{ border:none;background:#464646 !important;  }
+.pagination table { border:none !important; float:right; }
+.pagination table tr { border:none;background:#757575 !important;  }
+.pagination table td { border:none; padding:0px; }
+.pagination table td span { border:none; padding:0px; background:none; }*/
+
+
+.gridviewTable{ border:solid 1px #d9d9d9; width:690px;  }
+.gridviewTable table{display: table;border-collapse: separate;}
+.gridviewTable table th{ background: rgb(0, 139, 164); height:20px;font-family: Arial;font-size: 12px;color: white;font-weight: bold;text-decoration: none; padding:4px 0px 4px 14px;border-right:solid 1px #fff; border-left:solid 1px #fff;border-bottom:solid 1px #d9d9d9;}
+.gridviewTable table th a { color:White; text-decoration:none;  }
+.gridviewTable table td{ padding:5px 0px 5px 10px; height:15px; font-family: Arial;font-size: 12px;color:#464646;font-weight: normal;text-decoration: none;  border-right:solid 1px #fff; border-left:solid 1px #fff;border-bottom:solid 1px #d9d9d9;}
+ table tr.alternateRow { background:#ebebeb }
+ 
+.pagination { background:#e4e4e4 !important; }
+.pagination table{ width:auto !important;float:right; }
+.pagination table td{ text-align:left !important; width:10px;border:none;color:#464646;padding-right:3px;  }
+.pagination table td a { color:#464646; }
+
+.Checkboxlist td {border-bottom: none !important; padding:3px ;} 
+
+.gridviewTableSmall{ border:solid 1px #d9d9d9; width:450px;  }
+.gridviewTableSmall table{display: table;border-collapse: separate;}
+.gridviewTableSmall table th{ background: rgb(0, 139, 164); height:20px;font-family: Arial;font-size: 12px;color: white;font-weight: bold;text-decoration: none; padding:4px 0px 4px 14px;border-right:solid 1px #fff; border-left:solid 1px #fff;border-bottom:solid 1px #d9d9d9;}
+.gridviewTableSmall table th a { color:White; text-decoration:none;  }
+.gridviewTableSmall table td{ padding:5px 0px 5px 10px; height:15px; font-family: Arial;font-size: 12px;color:#464646;font-weight: normal;text-decoration: none;  border-right:solid 1px #fff; border-left:solid 1px #fff;border-bottom:solid 1px #d9d9d9;}
+
+
+/* Grid table Css End*/
+
+
+/* calendar control starts here */
+.ajax__calendar_years table td { padding: 0px; }
+.ajax__calendar_months table td { padding: 0px; }
+.ajax__calendar_days table td { padding: 0px; 	height:auto !important; }
+.ajax__calendar_title { background-color: #d2ad5a; 	padding: 3px 0px; color: #ffffff; }
+.ajax__calendar_prev { background: url(../images/calendar-prev.gif) no-repeat 50% 50%; }
+.ajax__calendar_next { background: url(../images/calendar-next.gif) no-repeat 50% 50%; }
+.ajax__calendar_days thead td { border-bottom: 1px solid #808080; }
+.ajax__calendar_footer { background-color: #e8d6ac; }
+.textwatermarked { font-family:Arial; font-size:12px; font-weight:bold;color: #C0C0C0; font-style: italic; }
+.ajax__calendar .ajax__calendar_other .ajax__calendar_day {color: #C0C0C0 !important;}
+/* calendar control ends here */
+
+
+.levelgrid{ width:690px; height:auto; margin:0 auto;}
+.levelgrid table{ border:solid 1px #d9d9d9;}
+.levelgrid table td{ height:32px; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:normal; color:#464646;}
+.levelgrid table th{background:#008ba4; height:25px; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; color:#fff; padding: 6px 0 0 8px;}
+.alternavtive-bg{ background:#f5f5f5; height:32px;}
+.alternavtive-bg1{ background:#ebebeb; height:32px;}
+.alternavtive-bg2{ background:#e0e1e2; height:32px; font-family:Arial, Helvetica, sans-serif; color:#464646; font-weight:bold !important}
+.alternavtive-bg2 td{ background:#e0e1e2; height:32px; font-family:Arial, Helvetica, sans-serif; color:#464646; font-weight:bold !important;}

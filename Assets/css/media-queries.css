@@ -1,0 +1,10 @@
+﻿@media (max-width:1024px)
+{
+    .app-theme-white .app-sidebar{width:20%}
+    .app-header__logo .logo-src{background-size:contain}
+    .app-header__logo{width:20% !important}
+    #SchoolName{font-size:16px;}
+    .page-title-right{width:60%}
+    .page-title-left{width:40%}
+    #schoollogo img{height:40px;}
+    }

@@ -1,0 +1,181 @@
+﻿ /* Tasks Starts Here*/
+        .form-control{width:100% !important}
+        .form-group {
+         margin-bottom: 10px;
+    width: 304px;
+    /* width: 325px; */
+    height: 60px;
+}
+.check-success{display:flex;text-align:left;align-items:center;justify-content:space-between;}
+input[type=checkbox], input[type=radio]{margin:0}
+label{margin-left:10px}
+.todoWrapper {
+    padding: 0 20px!important;
+    border-color: transparent!important;
+}
+
+.todoWrapper .sort-todo a {
+    margin-right: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #00e2f0;
+}
+
+.todoWrapper .input-group {
+   /* width: 100%;  */
+    width: 989px;
+}
+.input-group {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+input-primary .border-right {
+    border-right: 1px solid #00e2f0;
+}
+.input-primary .input-group-addon {
+    background-color: transparent;
+}
+.input-primary .border-left, .input-primary .border-right {
+    border-top: 1px solid #00e2f0;
+    border-bottom: 1px solid #00e2f0;
+}
+.todoWrapper .input-group-addon {
+    width: 50px;
+    border: 1px solid #00e2f0;
+    z-index: 0!important;
+}
+.input-primary .form-control {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: #00e2f0!important;
+    border-radius: 0;
+}
+
+.todoWrapper .form-control {
+    height: 50px;
+    z-index: 0!important;
+}
+
+.todoWrapper .form-control, .todoWrapper .form-control:active, .todoWrapper .form-control:focus, .todoWrapper .form-control:hover {
+    background-image: none;
+    border: 1px solid #00e2f0;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.todoWrapper .panel-body {
+    padding: 0;
+}
+
+.todo .action-btns {
+    width: 25px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.pull-right {
+    float: right!important;
+}
+
+.todo .action-btns a {
+    margin-left: 20px;
+    font-size: 16px;
+}
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+
+
+.todo .action-btns a span {
+    font-size: 16px;
+    color: #00e2f0;
+}
+
+.icheckbox_square-pink {
+    background-position: 0 0;
+}
+.icheckbox_square-pink, .iradio_square-pink {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    background: url(Calendar/images/pink.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+.list-group {
+    padding-left: 0;
+    width:990px;
+    margin-bottom: 0px;
+}
+
+.task-head
+{
+    background:none;
+    border:none;
+    margin-right: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #098E83;
+    font-weight:600;
+}
+
+.taskchkbox input[type=checkbox]:checked + label
+{   color:Green;
+}
+
+.required-fieldValidator
+{
+    z-index: 10;
+    font-size:12px;
+    color:Red;
+}
+
+.groupOfTexbox {
+}
+
+.chkLabelGreen label
+{
+    color:green !important;
+}
+.chkLabelRed label
+{
+    color:Red !important;
+}
+.chkLabelOrange label
+{
+    color:orange !important;
+}
+.paddingtop-10
+{
+    padding-top:10px;
+}
+.paddingleft-0
+{
+    padding-left: 0px;
+}
+.inner-container
+{
+    max-height: 480px;
+    overflow: auto;
+}
+.padding-0
+{
+    padding: 0px;
+}
+

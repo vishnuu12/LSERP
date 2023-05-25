@@ -1,0 +1,23 @@
+Dear <Name>,<br/><br/>
+
+<DataEntryUser> request is pending for your approval. Document Details as follows:<br/><br/>
+
+Document No   :  <DocumentNo><br/><br/>
+Bill No  :  <BillNo><br/><br/>
+Bill Date  :  <BillDate><br/><br/>
+Vendor Details  :  <Vendor><br/><br/>
+Department  :  <Department><br/><br/>
+BillValue :  <BillValue><br/><br/>
+Purpose :   <Purpose><br/><br/>
+PaymentType : <PaymentType> <br/><br/>
+
+
+For approving please visit https://www.allsectech.com/mtsindia/ <br/><br/>
+
+With regards,<br/>
+On Behalf of Docu Manager<br/><br/>
+
+<b>Note : This is a system generated mail. Do not reply.</b>
+
+
+

@@ -1,0 +1,482 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="CommonMaster.master.cs"
+    Inherits="Master_CommonMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Lonestar ERP</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <%--<link rel="stylesheet" type="text/css" href="../Assets/css/bootstrap.css" />--%>
+    <link rel="stylesheet" type="text/css" href="../Assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../Assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/ep-style.css" />
+    <link rel="stylesheet" type="text/css" href="../Assets/css/media-queries.css" />
+    <link rel="stylesheet" type="text/css" href="../Assets/css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="../Assets/css/sweetalert.css" />
+    <script type="text/javascript" src="../Assets/scripts/main.js"></script>
+    <script type="text/javascript" src="../Assets/scripts/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../Assets/scripts/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="../Assets/scripts/CommonFunctions.js"></script>
+    <%--<link rel="stylesheet" type="text/css" href="../Assets/css/style.css" />--%>
+    <%--<link rel="stylesheet" type="text/css" href="../Assets/css/responsive-style.css" />--%>
+    <link rel="apple-touch-icon" sizes="57x57" href="../Assets/Images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../Assets/Images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../Assets/Images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../Assets/Images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../Assets/Images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../Assets/Images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../Assets/Images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../Assets/Images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../Assets/Images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../Assets/Images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Assets/Images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../Assets/Images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Assets/Images/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <style type="text/css">
+        
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <cc1:ToolkitScriptManager runat="Server" EnablePartialRendering="true" ID="ScriptManager1"
+        EnablePageMethods="true" />
+    <div>
+        <div class="app-container app-theme-white body-tabs-shadow fixed-header fixed-sidebar">
+            <div class="app-header header-shadow">
+                <div class="app-header__logo app-header__logo-close ">
+                    <div class="logo-src">
+                        <div id="logo2">
+                            <img src="" alt="" style="height: 50px; margin: 0 10px 0 0;">
+                        </div>
+                    </div>
+                    <div class="header__pane ml-auto">
+                        <div>
+                            <button id="hi" type="button" class="hamburger close-sidebar-btn" data-class="closed-sidebar">
+                                <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-header__mobile-menu">
+                    <div>
+                        <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                            <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="app-header__menu">
+                    <h4 class="font-style">
+                        LONESTAR INDUSTRIES</h4>
+                    <span style="margin-left: 10px;">
+                        <button type="button" class="btn-icon btn-icon-only btn btn-warning btn-sm mobile-toggle-header-nav">
+                            <span class="btn-icon-wrapper"><i class="fa fa-ellipsis-v fa-w-6"></i></span>
+                        </button>
+                    </span>
+                </div>
+                <div class="app-header__content">
+                    <div class="app-header-left">
+                        <div id="schoollogo">
+                            <img id="imgschoollogo" runat="server" src="~/Assets/images/lonestar.png" alt=""
+                                style="height: 60px; margin: 0 10px 0 0">
+                        </div>
+                        <h4 id="SchoolName" class="SchoolName" runat="server">
+                            LONESTAR INDUSTRIES
+                        </h4>
+                    </div>
+                    <div class="app-header-right">
+                        <div class="header-dots">
+                            <div class="dropdown">
+                                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-xl rm-pointers dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-menu-header">
+                                        <div class="dropdown-menu-header-inner bg-plum-plate">
+                                            <div class="menu-header-image" style="background-image: url('../assets/images/dropdown-header/abstract4.jpg');">
+                                            </div>
+                                            <div class="menu-header-content text-white">
+                                                <h5 class="menu-header-title">
+                                                    Grid Dashboard</h5>
+                                                <h6 class="menu-header-subtitle">
+                                                    Easy grid navigation inside dropdowns</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="grid-menu grid-menu-xl grid-menu-3col">
+                                        <div class="no-gutters row">
+                                            <div class="col-sm-6 col-xl-4">
+                                                <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
+                                                    <i class="pe-7s-world icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3">
+                                                    </i>Automation
+                                                </button>
+                                            </div>
+                                            <div class="col-sm-6 col-xl-4">
+                                                <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
+                                                    <i class="pe-7s-piggy icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3">
+                                                    </i>Reports
+                                                </button>
+                                            </div>
+                                            <div class="col-sm-6 col-xl-4">
+                                                <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
+                                                    <i class="pe-7s-config icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3">
+                                                    </i>Settings
+                                                </button>
+                                            </div>
+                                            <div class="col-sm-6 col-xl-4">
+                                                <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
+                                                    <i class="pe-7s-browser icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3">
+                                                    </i>Content
+                                                </button>
+                                            </div>
+                                            <div class="col-sm-6 col-xl-4">
+                                                <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
+                                                    <i class="pe-7s-hourglass icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3">
+                                                    </i>Activity
+                                                </button>
+                                            </div>
+                                            <div class="col-sm-6 col-xl-4">
+                                                <button class="btn-icon-vertical btn-square btn-transition btn btn-outline-link">
+                                                    <i class="pe-7s-world icon-gradient bg-night-fade btn-icon-wrapper btn-icon-lg mb-3">
+                                                    </i>Contacts
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item-divider nav-item"></li>
+                                        <li class="nav-item-btn text-center nav-item">
+                                            <button class="btn-shadow btn btn-primary btn-sm">
+                                                Follow-ups</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <button type="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"
+                                    class="p-0 mr-2 btn btn-link">
+                                    <span class="icon-wrapper icon-wrapper-alt rounded-circle"><span class="icon-wrapper-bg bg-danger">
+                                    </span><i class="icon text-danger icon-anim-pulse ion-android-notifications"></i><span
+                                        class="badge badge-dot badge-dot-sm badge-danger">Notifications</span> </span>
+                                </button>
+                                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu-xl rm-pointers dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-menu-header mb-0">
+                                        <div class="dropdown-menu-header-inner bg-deep-blue">
+                                            <div class="menu-header-image opacity-1">
+                                            </div>
+                                            <div class="menu-header-content text-dark">
+                                                <h5 class="menu-header-title">
+                                                    Notifications</h5>
+                                                <h6 class="menu-header-subtitle">
+                                                    You have <b>21</b> unread messages</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="tabs-animated-shadow tabs-animated nav nav-justified tabs-shadow-bordered p-3">
+                                        <li class="nav-item"><a role="tab" class="nav-link active" data-toggle="tab" href="#tab-messages-header">
+                                            <span>Notifications</span> </a></li>
+                                        <li class="nav-item"><a role="tab" class="nav-link" data-toggle="tab" href="#tab-events-header">
+                                            <span>Events</span> </a></li>
+                                        <li class="nav-item"><a role="tab" class="nav-link" data-toggle="tab" href="#tab-errors-header">
+                                            <span>My Tasks</span> </a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab-messages-header" role="tabpanel">
+                                            <div class="scroll-area-sm">
+                                                <div class="scrollbar-container">
+                                                    <div class="p-3">
+                                                        <div class="notifications-box">
+                                                            <div class="vertical-time-simple vertical-without-time vertical-timeline vertical-timeline--one-column"
+                                                                id="divNotifications" runat="server">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab-events-header" role="tabpanel">
+                                            <div class="scroll-area-sm">
+                                                <div class="scrollbar-container">
+                                                    <div class="p-3">
+                                                        <div class="vertical-without-time vertical-timeline vertical-timeline--animate vertical-timeline--one-column"
+                                                            id="divEvents" runat="server">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab-errors-header" role="tabpanel">
+                                            <div class="scroll-area-sm">
+                                                <div class="scrollbar-container">
+                                                    <div class="no-results pt-3 pb-0">
+                                                        <div class="swal2-icon swal2-success swal2-animate-success-icon">
+                                                            <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);">
+                                                            </div>
+                                                            <span class="swal2-success-line-tip"></span><span class="swal2-success-line-long">
+                                                            </span>
+                                                            <div class="swal2-success-ring">
+                                                            </div>
+                                                            <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);">
+                                                            </div>
+                                                            <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);">
+                                                            </div>
+                                                        </div>
+                                                        <div class="results-subtitle">
+                                                            All caught up!</div>
+                                                        <div class="results-title">
+                                                            There are no system errors!</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item-divider nav-item"></li>
+                                        <li class="nav-item-btn text-center nav-item">
+                                            <button class="btn-shadow btn-wide btn-pill btn btn-focus btn-sm">
+                                                View More ...</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-btn-lg pr-0">
+                            <div class="widget-content p-0">
+                                <div class="widget-content-wrapper">
+                                    <div class="widget-content-left">
+                                        <div class="btn-group">
+                                            <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                                <img width="42" class="rounded-circle" src="~/Assets/images/no-photo.jpg" alt=""
+                                                    id="imgheaduserphoto" runat="server">
+                                            </a>
+                                            <div tabindex="-1" role="menu" aria-hidden="true" class="rm-pointers dropdown-menu-lg dropdown-menu dropdown-menu-right">
+                                                <div class="dropdown-menu-header">
+                                                    <div class="dropdown-menu-header-inner bg-info">
+                                                        <div class="menu-header-image opacity-2">
+                                                        </div>
+                                                        <div class="menu-header-content text-left">
+                                                            <div class="widget-content p-0">
+                                                                <div class="widget-content-wrapper">
+                                                                    <div class="widget-content-left mr-3">
+                                                                        <img width="60" class="rounded-circle" src="" alt="" id="imguserphoto" runat="server">
+                                                                    </div>
+                                                                    <div class="widget-content-left">
+                                                                        <div class="widget-heading">
+                                                                            <span id="spanUserName" runat="server"></span>
+                                                                        </div>
+                                                                        <div class="widget-subheading">
+                                                                            <span id="spanUserType" runat="server"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="widget-content-right mr-2">
+                                                                        <%-- <button class="btn-pill btn-shadow btn-shine btn btn-focus">
+                                                                            Logout
+                                                                        </button>--%>
+                                                                        <asp:Button ID="btnLogout" runat="server" Text="Logout" CssClass="btn-pill btn-shadow btn-shine btn btn-focus"
+                                                                            OnClick="btnLogout_Click" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="scroll-area-xs" style="height: 150px;">
+                                                    <div class="scrollbar-container ps">
+                                                        <ul class="nav flex-column">
+                                                            <li class="nav-item-header nav-item">Activity </li>
+                                                            <li class="nav-item-header nav-item" id="liLastLoginTime" runat="server"></li>
+                                                            <li class="nav-item"><a href="javascript:void(0);" class="nav-link">Profile Settings
+                                                            </a></li>
+                                                            <li class="nav-item"><a href="javascript:void(0);" class="nav-link">Recover Password
+                                                            </a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <ul class="nav flex-column">
+                                                    <li class="nav-item-divider mb-0 nav-item"></li>
+                                                </ul>
+                                                <div class="grid-menu grid-menu-2col">
+                                                    <div class="no-gutters row">
+                                                        <div class="col-sm-6">
+                                                            <button class="btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-inbox">
+                                                                <i class="pe-7s-chat icon-gradient bg-amy-crisp btn-icon-wrapper mb-2"></i>Message
+                                                                Inbox
+                                                            </button>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <button class="btn-icon-vertical btn-transition btn-transition-alt pt-2 pb-2 btn btn-outbox">
+                                                                <i class="pe-7s-ticket icon-gradient bg-love-kiss btn-icon-wrapper mb-2"></i><b>Message
+                                                                    Outbox</b>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%-- <div class="widget-content-left  ml-3 header-user-info">
+                                        <div class="widget-heading">
+                                            Alina Mclourd
+                                        </div>
+                                        <div class="widget-subheading">
+                                            VP People Manager
+                                        </div>
+                                    </div>
+                                    <div class="widget-content-right header-user-info ml-3">
+                                        <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
+                                            <i class="fa text-white fa-calendar pr-1 pl-1"></i>
+                                        </button>
+                                    </div>--%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="app-main">
+                <div class="app-sidebar sidebar-shadow ">
+                    <div class="app-header__logo">
+                        <div class="logo-src">
+                        </div>
+                        <div class="header__pane ml-auto">
+                            <div>
+                                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                                    <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="app-header__mobile-menu">
+                        <div>
+                            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                                <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="app-header__menu">
+                        <span>
+                            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                                <span class="btn-icon-wrapper"><i class="fa fa-ellipsis-v fa-w-6"></i></span>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="scrollbar-sidebar">
+                        <div class="app-sidebar__inner">
+                            <div id="divMenu" runat="server">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="app-drawer-wrapper">
+            <div class="drawer-nav-btn">
+                <button type="button" class="hamburger hamburger--elastic is-active">
+                    <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+                </button>
+            </div>
+        </div>
+        <div class="app-drawer-overlay d-none animated fadeIn">
+        </div>
+        <script type="text/javascript" src="../Assets/scripts/main.js"></script>
+        <div class="page-content" id="pagecontent" runat="server">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <asp:Panel ID="loader" runat="server" Style="display: none;">
+        <div align="center">
+            <img src="../Assets/images/preloader_transparent.gif" alt="" />
+            <br />
+            <span style="font-family: Calibri,arial; font-size: 19px; color: #1D68AE;" id="MessageText">
+                Please Wait....</span>
+        </div>
+    </asp:Panel>
+    <cc1:ModalPopupExtender ID="mpeLoaderLoad" BackgroundCssClass="loaderModalBackground"
+        runat="server" OkControlID="btnMPOk" CancelControlID="btnMPCancel" PopupControlID="loader"
+        TargetControlID="btnMPOk">
+    </cc1:ModalPopupExtender>
+    <input type="button" id="btnMPOk" runat="server" value="OkButton" style="display: none;" />
+    <input type="button" id="btnMPCancel" runat="server" value="CancelBut" style="display: none;" />
+    <script type="text/javascript" src="../Assets/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../Assets/scripts/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Assets/css/notify-bootstrap.css" />
+    <script type="text/javascript" src="../Assets/scripts/notify.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Assets/css/sweetalert.css" />
+    <script type="text/javascript" src="../Assets/scripts/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $("#hi").click(function () {
+            //            $(".app-header__logo").toggleClass("app-header__logo-close");
+            $(".app-header__logo-close").toggleClass("app-header__logo");
+            $(".main-container_close").toggleClass("main-container");
+            $(".app-sidebar").toggleClass("app-sidebar-close");
+        });
+        $(".btn-add").click(function () {
+            $(".fa-minus-circle").toggleClass("fa-plus-circle");
+        });
+        function InfoMessage(title, message) {
+            swal(title, message, 'info');
+        }
+        function SuccessMessage(title, message) {
+            swal(title, message, 'success');
+        }
+        function ErrorMessage(title, message) {
+            swal(title, message, 'error');
+        }
+
+        function showLoader() {
+            $find("<%=mpeLoaderLoad.ClientID %>").show();
+        }
+        function hideLoader() {
+            $find("<%=mpeLoaderLoad.ClientID %>").hide();
+        }
+        $(document).ready(function () {
+            $('.form-control').each(function () {
+                if ($(this).prop("tagName") == "INPUT") {
+                    if ($(this).val() == "")
+                        $(this).removeClass('has-val');
+                    else
+                        $(this).addClass('has-val');
+                } else if ($(this).prop("tagName") == "SELECT") {
+                    if (($(this).val() == "0") || ($(this).val() == "") || ($(this).val() == null))
+                        $(this).removeClass('has-val');
+                    else
+                        $(this).addClass('has-val');
+                }
+            });
+            $('.form-control').focusout(function () {
+                if ($(this).prop("tagName") == "INPUT") {
+                    if ($(this).val() == "")
+                        $(this).removeClass('has-val');
+                    else
+                        $(this).addClass('has-val');
+                } else if ($(this).prop("tagName") == "SELECT") {
+                    if (($(this).val() == "0") || ($(this).val() == "") || ($(this).val() == null))
+                        $(this).removeClass('has-val');
+                    else
+                        $(this).addClass('has-val');
+                }
+            });
+        });
+
+
+        function ServerSideValidation(controlID) {
+            var message = controlID.split('/');
+            $('#' + message[0]).notify(message[1], { arrowShow: true, position: 'r,r', autoHide: true });
+        }
+
+    </script>
+    </form>
+</body>
+</html>

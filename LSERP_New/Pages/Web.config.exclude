@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <!--xmlns="http://schemas.microsoft.com/.NetConfiguration/v2.0"-->
+  <configSections>
+    <sectionGroup name="microsoft.web" type="Microsoft.Web.Configuration.MicrosoftWebSectionGroup">
+      <section name="converters" type="Microsoft.Web.Configuration.ConvertersSection" requirePermission="false" />
+      <section name="webServices" type="Microsoft.Web.Configuration.WebServicesSection" requirePermission="false" />
+      <section name="authenticationService" type="Microsoft.Web.Configuration.AuthenticationServiceSection" requirePermission="false" />
+      <section name="profileService" type="Microsoft.Web.Configuration.ProfileServiceSection" requirePermission="false" />
+    </sectionGroup>
+    <!--<sectionGroup name="businessObjects">
+      <sectionGroup name="crystalReports">
+        <section name="reportMappings" type="CrystalDecisions.Shared.ReportMappingHandler, CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, Custom=null" />
+      </sectionGroup>
+    </sectionGroup>-->
+  </configSections>
+  <microsoft.web>
+    <converters>
+      <add type="Microsoft.Web.Script.Serialization.Converters.DataSetConverter" />
+      <add type="Microsoft.Web.Script.Serialization.Converters.DataRowConverter" />
+      <add type="Microsoft.Web.Script.Serialization.Converters.DataTableConverter" />
+    </converters>
+    <webServices enableBrowserAccess="true" />
+  </microsoft.web>
+  <connectionStrings>
+    <add name="Excel03ConString" connectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0;HDR=YES'" />
+    <add name="Excel07ConString" connectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 12.0 Xml;HDR=YES'" />
+    <add name="oledbcon" connectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\database\lms.mdb;Persist Security Info=True;Jet OLEDB:Database Password=csts12345csts" />
+    <add name="con2" connectionString="server=103.27.86.204;Initial Catalog=Elearning;User ID=sa;Password=1908@innova;Max Pool Size=30000;" />
+    <add name="con" connectionString="server=103.231.100.14;Initial Catalog=EPLUS_MLZ;User ID=sa;Password=litera@123;Max Pool Size=30000;" />
+    <!--<add name="con" connectionString="server=.;Initial Catalog=EPlus_National;User ID=sa;Password=welcome123;Max Pool Size=30000;" />-->
+  </connectionStrings>
+  <system.web>
+    <pages controlRenderingCompatibilityVersion="3.5" clientIDMode="AutoID">
+      <controls>
+        <add tagPrefix="asp" namespace="System.Web.UI" assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+        <add tagPrefix="asp" namespace="System.Web.UI.DataVisualization.Charting" assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      </controls>
+    </pages>
+    <!-- 
+            Set compilation debug="true" to insert debugging 
+            symbols into the compiled page. Because this 
+            affects performance, set this value to true only 
+            during development.
+        -->
+    <compilation debug="true" targetFramework="4.0">
+      <assemblies>
+        <!--<add assembly="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304" />
+        <add assembly="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304" />
+        <add assembly="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304" />
+        <add assembly="CrystalDecisions.ReportAppServer.Controllers, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304" />
+        <add assembly="CrystalDecisions.ReportAppServer.DataDefModel, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304" />
+        <add assembly="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692FBEA5521E1304" />
+        <add assembly="CrystalDecisions.ReportAppServer.ClientDoc, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />-->
+        <add assembly="System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="System.Web.Services, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B77A5C561934E089" />
+        <add assembly="System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="Microsoft.Build.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=B03F5F7F11D50A3A" />
+        <add assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+      </assemblies>
+      <buildProviders>
+        <add extension=".asbx" type="Microsoft.Web.Services.BridgeBuildProvider" />
+        <add extension=".rdlc" type="Microsoft.Reporting.RdlBuildProvider, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      </buildProviders>
+    </compilation>
+    <webServices>
+      <protocols>
+        <add name="HttpGet" />
+      </protocols>
+    </webServices>
+    <httpHandlers>
+      <add path="atlasbatchcall.axd" verb="*" type="Microsoft.Web.Services.MultiRequestHandler" validate="false" />
+      <add path="atlasglob.axd" verb="*" type="Microsoft.Web.Globalization.GlobalizationHandler" validate="false" />
+      <add path="*.asbx" verb="*" type="Microsoft.Web.Services.ScriptHandlerFactory" validate="false" />
+      <!--<add verb="GET" path="CrystalImageHandler.aspx" type="CrystalDecisions.Web.CrystalImageHandler, CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+      <add path="Reserved.ReportViewerWebControl.axd" verb="*" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" validate="false" />
+      <add verb="GET" path="CrystalImageHandler.aspx" type="CrystalDecisions.Web.CrystalImageHandler, CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />-->
+      <add path="ChartImg.axd" verb="GET,HEAD,POST" type="System.Web.UI.DataVisualization.Charting.ChartHttpHandler, System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" validate="false" />
+    </httpHandlers>
+    <httpModules>
+      <add name="BridgeModule" type="Microsoft.Web.Services.BridgeModule" />
+      <add name="WebResourceCompression" type="Microsoft.Web.Services.WebResourceCompressionModule" />
+    </httpModules>
+    <!--
+            The <authentication> section enables configuration 
+            of the security authentication mode used by 
+            ASP.NET to identify an incoming user. 
+        -->
+    <authentication mode="Windows" />
+    <!--
+            The <customErrors> section enables configuration 
+            of what to do if/when an unhandled error occurs 
+            during the execution of a request. Specifically, 
+            it enables developers to configure html error pages 
+            to be displayed in place of a error stack trace.
+
+        <customErrors mode="RemoteOnly" defaultRedirect="GenericErrorPage.htm">
+            <error statusCode="403" redirect="NoAccess.htm" />
+            <error statusCode="404" redirect="FileNotFound.htm" />
+        </customErrors>
+        -->
+    <trust level="Full" />
+    <identity impersonate="false" />
+    <!--<sessionState mode="InProc" stateConnectionString="tcpip=127.0.0.1:42424" sqlConnectionString="data source=127.0.0.1;Trusted_Connection=yes" cookieless="false" timeout="60"/>-->
+    <sessionState mode="InProc" cookieless="false" timeout="60" />
+    <httpRuntime requestValidationMode="2.0" maxRequestLength="1048576" />
+
+  </system.web>
+  <location allowOverride="true" inheritInChildApplications="true">
+    <appSettings file="Message.config">
+      <add key="BGID" value="14" />
+      <add key="BGPath" value="http://103.231.100.14/EPBGImages/" />
+      <add key="Template" value="D:\InnovasphereInfotech\LiveImages\SMS\Template\" />
+      <add key="StudentBulkUpload" value="D:\InnovasphereInfotech\LiveImages\SMS\StudentBulkUpload\" />
+      <add key="StaffBulkUpload" value="D:\InnovasphereInfotech\LiveImages\SMS\StaffBulkUpload\" />
+      <add key="BasehttpPath" value="http://103.231.100.14/SMSImages" />
+      <add key="baseHttpPath1" value="http://103.231.100.14/cstsImages/" />
+      <add key="baseUploadPath1" value="D:\InnovasphereInfotech\LiveImages\CyberSchool\SlideShow\" />
+      <add key="baseTempPath1" value="D:\InnovasphereInfotech\LiveImages\CyberSchool\SlideShow\TempPath\" />
+      <add key="FTPPath" value="E:\TestImages\FTPPath\EplusMobile" />
+      <add key="SchoolImages" value="D:\InnovasphereInfotech\LiveImages\SchoolImages\" />
+      <add key="bulkdownloadurl" value="http://103.231.100.14/EPREPORT/Bulkdownload.aspx" />
+      <add key="reportcardfilepath" value="http://103.231.100.14/mlzreportcard" />
+      <add key="AllowedImageFileTypes" value=".jpg.jpeg.png.gif.tiff" />
+      <add key="AllowedFlashFileTypes" value=".swf" />
+      <add key="AllowedAudioFileTypes" value=".mp3" />
+      <add key="SQLConn_CSDISC" value="Server=182.18.165.86;uid=sa;Password=1908@innova;database=CS-DISC-Dev" />
+      <add key="FTPPath" value="D:\InnovasphereInfotech\LiveImages\SMS\FTPDocs\" />
+      <add key="SchoolFTPImages" value="http://103.231.100.14/SchoolFTPImages/" />
+      <add key="PhotoGalleryHttpPath" value="http://103.231.100.14/cstsImages/" />
+      <add key="PhotoGallery" value="http://103.231.100.14/SchoolWebSite/" />
+      <add key="PhotoGalleryPath" value="D:\InnovasphereInfotech\LiveImages\SchoolWebSite\" />
+      <add key="ReportCardFiles" value="D:\InnovasphereInfotech\LiveImages\ReportCardFiles" />
+      <add key="MLZReportCard" value="http://103.231.100.14/MLZReportCard" />
+      <add key="SchoolCommitteeDoc" value="D:\InnovasphereInfotech\LiveImages\SMS\SchoolCommittee\" />
+      <add key="SubjectDocs" value="D:\InnovasphereInfotech\LiveImages\SMS\SubjectDocs\" />
+      <add key="SubjectDocsPath" value="http://103.231.100.14/SubjectDocs/" />
+      <add key="QuestionPaperImage" value="http://103.231.100.14/QuestionPaperImage/" />
+      <add key="NotificationUpload" value="D:\InnovasphereInfotech\LiveImages\SMS\Notifications\" />
+      <add key="NotificationFileDownload" value="http://103.231.100.14/NotificationFilePath/" />
+      <add key="QRDocs" value="D:\InnovasphereInfotech\LiveImages\MLZQRDocs" />
+      <add key="ProjectPath" value="D:\InnovasphereInfotech\EducationPlus" />
+      <add key="ProjectPath2" value="D:\InnovasphereInfotech\EducationPlus\ReportCardsTemplate\ReportCardSign\" />
+      <add key="Url" value="http://mlz.innovasphere.com" />
+      <add key="SMSTemplateInserSchoolReg" value="Yes" />
+      <add key="MerchantId" value="M_ara22440_22440" />
+      <add key="WorkingKey" value="jrvog4ko15sx0i7iie" />
+      <add key="PGTesting" value="No" />
+      <add key="SMTP-Host1" value="smtp.gmail.com" />
+      <add key="SMTP-User1" value="donotreply@mountlitera.com" />
+      <add key="SMTP-Pwd1" value="mlzeplus@123" />
+      <add key="SMTP-Port1" value="587" />
+      <add key="SMTP-SSL" value="1" />
+      <add key="SMS_UserID" value="innova" />
+      <add key="SMS_Password" value="docubank123" />
+      <add key="SMS_SenderId" value="INNOVA" />
+      <add key="SMS_WorkingKey" value="6253v9fs4r10s2tppix" />
+      <add key="EplusFTP" value="103.27.86.204/EPLUSMobile/MLZ" />
+      <add key="Eplususername" value="ftptest" />
+      <add key="Epluspassword" value="!nnov@" />
+      <add key="SchoolImages" value="D:\InnovasphereInfotech\LiveImages\SchoolImages\" />
+      <add key="gpsUserID" value="aravind2018" />
+      <add key="gpsPassword" value="aravind2018" />
+      <add key="gpsAppKey" value="8FB345B8693CCD000047A4485040AD70" />
+      <add key="gpsAppSecret" value="69f5aa876dbb465389de5706935382dc" />
+
+      <add key="Faridkot_MerchantId" value="66481" />
+      <add key="Faridkot_WorkingKey" value="DD76D47F5B330CF5625C0DCCF05BFFDD" />
+      <add key="Faridkot_PGTesting" value="No" />
+
+      <add key="BarcodePrintingPath" value="D:\InnovasphereInfotech\LiveImages\SMS\BarcodePrinting\EducationPlusBarcodePrinting.rar" />
+      <add key="BarcodePrintingFileName" value="EducationPlusBarcodePrinting.rar" />
+
+      <add key="DownloadReport" value="D:\InnovasphereInfotech\LiveImages\SMS\DownloadReport" />
+      <add key="CurriculamFiles" value="D:\LiveImages\SMS\CurriculamFiles" />
+      <!--<add key="ChartImageHandler" value="storage=file;timeout=20;dir=D:\InnovasphereInfotech\LiveImages\TempImageFiles\;deleteAfterServicing=false;" />-->
+      <add key="ChartImageHandler" value="storage=memory;timeout=20;deleteAfterServicing=false;" />
+    </appSettings>
+  </location>
+  <system.webServer>
+    <validation validateIntegratedModeConfiguration="false" />
+    <handlers>
+      <!--<add name="ReportViewerWebControlHandler" preCondition="integratedMode" verb="*" path="Reserved.ReportViewerWebControl.axd" type="Microsoft.Reporting.WebForms.HttpHandler, Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <add name="CrystalImageHandler.aspx_GET" verb="GET" path="CrystalImageHandler.aspx" type="CrystalDecisions.Web.CrystalImageHandler, CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" preCondition="integratedMode" />
+		<add name="ChartImageHandler" preCondition="integratedMode" verb="GET,HEAD,POST" path="ChartImg.axd" type="System.Web.UI.DataVisualization.Charting.ChartHttpHandler, System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />-->
+      <remove name="ChartImageHandler" />
+      <add name="ChartImageHandler" preCondition="integratedMode" verb="GET,HEAD,POST" path="ChartImg.axd" type="System.Web.UI.DataVisualization.Charting.ChartHttpHandler, System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    </handlers>
+    <defaultDocument>
+      <files>
+        <add value="login.aspx" />
+      </files>
+    </defaultDocument>
+<security>
+      <requestFiltering>
+         <requestLimits maxAllowedContentLength="1073741824" />
+      </requestFiltering>
+   </security>
+        <directoryBrowse enabled="true" />
+        <staticContent>
+            <mimeMap fileExtension=".apk" mimeType="application/android" />
+        </staticContent>
+  </system.webServer>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-4.5.0.0" newVersion="4.5.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>

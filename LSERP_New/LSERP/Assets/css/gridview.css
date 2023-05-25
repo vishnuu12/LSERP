@@ -1,0 +1,39 @@
+﻿ #scrolledGridView
+    {
+        overflow-x: scroll; 
+        text-align: left;
+        width: 400px; /* i.e. too small for all the columns */
+    }
+
+   
+    .scrolled
+    {
+        position: relative;
+        left: 150px; /* i.e. col1 Width + col2 width */
+        overflow: hidden;
+        white-space: nowrap;
+        min-width: 500px; /* set your real column widths here */
+    }
+    .col1
+    {
+        left: 0px;
+        width: 50px;
+    }
+    .col2
+    {
+        left: 50px; /* i.e. col1 Width */
+        width: 100px;
+    }
+.HeaderFreez
+{
+position:relative ;
+top:expression(this.offsetParent.scrollTop);
+z-index: 10;
+}​
+ .table
+      {
+          width:1030px;
+          height:320px;
+          overflow-x:scroll;
+          display:inline-block;
+          }
